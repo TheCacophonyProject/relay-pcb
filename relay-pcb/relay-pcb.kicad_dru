@@ -1,0 +1,11 @@
+(version 1)
+
+# Relay contacts (COM/NC/NO) switch an isolated external circuit. Keep them well away
+# from the camera-side copper (coil, GND, VOUT, signals).
+(rule "relay contact isolation"
+	(condition "A.NetName == '/RELAY_*' && B.NetName != '/RELAY_*'")
+	(constraint clearance (min 2.0mm)))
+
+(rule "relay contact edge clearance"
+	(condition "A.NetName == '/RELAY_*'")
+	(constraint edge_clearance (min 1.0mm)))

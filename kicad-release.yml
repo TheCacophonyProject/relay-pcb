@@ -1,0 +1,16 @@
+project_name: relay-pcb
+output: production-files
+
+# {{.Version}} will be replaced with the git tag.
+
+# List of PCBs that will be processed. This will:
+# - Validate the Schematic ERC
+# - Validate the PCB DRC
+# - Make release files (gerber, BOM, placement file)
+pcbs:
+- id: relay-pcb
+  text_variables:
+    - key: TAG
+      val: {{.Version}}
+    - key: HASH
+      val: {{.GIT_HASH}}
